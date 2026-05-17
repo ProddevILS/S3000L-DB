@@ -1,0 +1,5 @@
+from django.db import migrations, models
+import django.db.models.deletion
+class Migration(migrations.Migration):
+    initial=True; dependencies=[('customers','0001_initial'),('projects','0001_initial')]
+    operations=[migrations.CreateModel(name='InvoiceExport',fields=[('id',models.BigAutoField(auto_created=True,primary_key=True,serialize=False,verbose_name='ID')),('period_start',models.DateField()),('period_end',models.DateField()),('created_at',models.DateTimeField(auto_now_add=True)),('export_type',models.CharField(max_length=20)),('file_path',models.CharField(blank=True,max_length=500)),('total_hours',models.DecimalField(decimal_places=2,default=0,max_digits=10)),('total_amount_net',models.DecimalField(decimal_places=2,default=0,max_digits=12)),('customer',models.ForeignKey(blank=True,null=True,on_delete=django.db.models.deletion.PROTECT,to='customers.customer')),('project',models.ForeignKey(blank=True,null=True,on_delete=django.db.models.deletion.PROTECT,to='projects.project'))])]
